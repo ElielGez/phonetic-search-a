@@ -15,7 +15,10 @@ demo: Demo.o $(OBJECTS)
 test: TestCounter.o Test.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
 
-%.o: %.cpp $(HEADERS)
+Test.o: Test.cpp
+	$(CXX) $(CXXFLAGS) --compile $< -o $@
+
+PhoneticFinder.o: PhoneticFinder.cpp PhoneticFinder.hpp
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
 
 clean:
